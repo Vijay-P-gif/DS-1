@@ -3,88 +3,118 @@ Password: ZjLjTmM6FvvyRnrb2rfNWOZOTa6ip5If
 This level introduces files whose names begin with a hyphen (-).
 Linux treats names starting with - as command options, so directly using cat - fails.
 By using ./-, we explicitly tell Linux to treat - as a file, not an option.
-________________________________________
+
  Level 2 → Level 3 
 Password: 263JGJPfgU6LtdEvgfWU1XP5yac29mFx
 Here, the file name contains spaces, which Linux interprets as argument separators.
 To correctly read such files, spaces must be escaped using backslashes (\).
 This level teaches safe handling of filenames with special characters.
-________________________________________
+
 Level 3 → Level 4
 Password: MNk8KNH3Usiio41PRUEoDFPqfxLPlSmx
 The password is hidden inside a directory and stored in a hidden file.
 Hidden files in Linux start with a dot (.) and are not shown by default.
 Using ls -la reveals all files, including hidden ones, along with permissions.
-________________________________________
+
 Level 4 → Level 5
 Password: 2WmrDFRmJIq3IPxneAaMGhap0pFhF3NJ
 This level contains multiple files with different formats.
 Only one file contains human-readable text, while others are binary.
 The file command helps identify the correct readable file without opening each manually.
-________________________________________
+
 Level 5 → Level 6
 Password: 4oQYVPkxZOOEOO5pTW81FB8j8lxXGUQw
 The password file must be located using specific conditions.
 It is exactly 1033 bytes, not executable, and is a regular file.
 The find command filters files based on size, type, and permissions efficiently.
-________________________________________
+
  Level 6 → Level 7
 Password: HWasnPhtq9AVKe0dmk45nxy20cvUa6EG
 The password is stored somewhere in the system, not the current directory.
 It belongs to a specific user and group and has a fixed size.
 Permission errors are suppressed using 2>/dev/null, allowing clean output.
-________________________________________
+
  Level 7 → Level 8
 Password: morbNTDkSW6jIlUc0ymOdMaLnOlFVAaj
 This level introduces searching inside files.
 The password is located next to a specific keyword (millionth).
 grep is used to search text efficiently without manually reading large files.
-________________________________________
+
  Level 8 → Level 9
 Password: dfwvzFQi4mU0wfNbFOe9RoWskMLg7eEc
 The file contains many duplicate lines, but only one is unique.
 Sorting the file groups identical lines together.
 uniq -u then extracts the single line that appears only once.
-________________________________________
+
  Level 9 → Level 10
 Password: 4CKMh1JI91bUIZZPXDqGanal4xvAg0JM
 The password is hidden in a mostly binary file.
 strings extracts readable text from binary data.
 A regular expression helps detect long Base64-like encoded strings.
-________________________________________
+
  Level 10 → Level 11
 Password: dtR173fZKb0RRsDFSGsg2RWnpNVj3qRr
 This level focuses on Base64 encoding.
 The file contents look unreadable but are encoded, not encrypted.
 Using base64 -d decodes the content and reveals the password.
-________________________________________
+
  Level 11 → Level 12
 Password: dtR173fZKb0RRsDFSGsg2RWnpNVj3qRr
 The data is encrypted using the ROT13 cipher.
 ROT13 shifts each letter by 13 positions in the alphabet.
 The tr command translates characters to decode the text back to plaintext.
-________________________________________
+
  Level 12 → Level 13
 Password: 7x16WNeHIi5YkIhWsfFIqoognUTyj9Q4
 This is a multi-layer challenge involving encoding and compression.
 The file is hex-encoded and wrapped in several compressed formats.
 By repeatedly identifying file types, renaming extensions, and decompressing, the password is revealed.
-________________________________________
+
  Level 13 → Level 14
 Password: FO5dwFsc0cbaIiH0h8J2eUks2vdTDwAn
 Instead of a password, an SSH private key is provided.
 SSH keys require strict permissions, or login is denied.
 After fixing permissions with chmod, the key is used to authenticate successfully.
-________________________________________
+
  Level 14 → Level 15
 Password: MU4VWeTyJk8ROof1qqmcBPaLh7lDCPvS
 The password for the next level is stored in a protected system file.
 After reading it, the password must be sent to a local service.
 nc (Netcat) is used to communicate with the service running on port 30000.
-________________________________________
+
  Level 15 → Level 16
 Password: 8xCjnmgoKbGLhHFAZlGE5Tmu4M2tKJQo
 This level introduces encrypted network communication.
 The service requires SSL/TLS instead of plain text.
 openssl s_client establishes a secure connection and reveals the next password.
+
+Level 16 → Level 17
+
+Password: kSkvUpMQ7lBYyCM4GBPvCvT1BfWRy0Dx
+What you learn:
+Logged in to bandit16 using the given password. Scanned localhost ports and connected to the SSL service using
+openssl s_client -connect localhost:30001.
+Provided the current password, which returned an SSH private key used to access the next level.
+
+Level 17 → Level 18
+
+Password: pGozC8kOHLkBMOaL0ICPvLV1IjQ5F1VA
+What you learn:
+Used the obtained private SSH key to log in as bandit17.
+Compared two files (passwords.old and passwords.new) to identify the changed password, which becomes the next level password.
+
+Level 18 → Level 19
+
+Password: cGWpMaKXVwDUNgPAVJbWYuGHVn9zl3j8
+What you learn:
+SSH login immediately logs out due to a command in .bashrc.
+Used a command execution method during SSH login to run cat readme, which revealed the password.
+
+Level 19 → Level 20
+
+Password: 0qXahG8ZjOVMN9Ghs7iOWsCfZyXOUbYO
+What you learn:
+Used a setuid binary that runs commands as bandit20.
+Executed the binary to read the password file of the next user
+
 
