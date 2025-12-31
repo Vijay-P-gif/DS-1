@@ -22,25 +22,25 @@ This level contains multiple files with different formats.
 Only one file contains human-readable text, while others are binary.
 The file command helps identify the correct readable file without opening each manually.
 ________________________________________
-🔐 Level 5 → Level 6
+Level 5 → Level 6
 Password: 4oQYVPkxZOOEOO5pTW81FB8j8lxXGUQw
 The password file must be located using specific conditions.
 It is exactly 1033 bytes, not executable, and is a regular file.
 The find command filters files based on size, type, and permissions efficiently.
 ________________________________________
-🔐 Level 6 → Level 7
+ Level 6 → Level 7
 Password: HWasnPhtq9AVKe0dmk45nxy20cvUa6EG
 The password is stored somewhere in the system, not the current directory.
 It belongs to a specific user and group and has a fixed size.
 Permission errors are suppressed using 2>/dev/null, allowing clean output.
 ________________________________________
-🔐 Level 7 → Level 8
+ Level 7 → Level 8
 Password: morbNTDkSW6jIlUc0ymOdMaLnOlFVAaj
 This level introduces searching inside files.
 The password is located next to a specific keyword (millionth).
 grep is used to search text efficiently without manually reading large files.
 ________________________________________
-🔐 Level 8 → Level 9
+ Level 8 → Level 9
 Password: dfwvzFQi4mU0wfNbFOe9RoWskMLg7eEc
 The file contains many duplicate lines, but only one is unique.
 Sorting the file groups identical lines together.
