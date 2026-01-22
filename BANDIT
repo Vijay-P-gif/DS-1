@@ -117,4 +117,14 @@ What you learn:
 Used a setuid binary that runs commands as bandit20.
 Executed the binary to read the password file of the next user
 
+Level 20 -> level 21
+I used  ls -l bandit20-do and able to find the 	Controlling who can execute/read
+Password:0qXahG8ZjOVMN9Ghs7iOWsCfZyXOUbYO
+
+
+
+Level 21 -> level 22
+I
+
+
 
